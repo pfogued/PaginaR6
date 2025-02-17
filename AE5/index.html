@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow 6</title>
+    <link rel="icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header><img src="./images/logoLetra.png" width="350" height="100px"></header>
+    <div class="nav">
+        <nav>
+            <a href="indexTodos.html">TODOS</a>
+            <a href="#botonAtaque">ATACANTES</a>
+            <a href="#botonDefensa">DEFENSORES</a>
+        </nav>
+    </div>
+
+    <!-- Botón de ATACANTES -->
+    <div id="divBotones">
+        <button id="botonAtaque">
+            ATACANTES <br/>
+            <img src="./images/espadasicono.png" width="40px" height="40px">
+        </button>
+    </div>
+<!-- Filtro "MAS FILTROS" debajo de los botones ATACANTES y DEFENSORES -->
+<div id="divBotonesFiltros">
+    <button id="masFiltros">
+        MÁS FILTROS
+    </button>
+    <div id="filtrosDesplegables" style="display: none;">
+        <select id="filtroSeleccionado">
+            <option value="">Selecciona un filtro</option>
+            <option value="inteligencia">Inteligencia</option>
+            <option value="apoyo">Apoyo</option>
+            <option value="controlMapa">Control de mapa</option>
+            <option value="bloqueoEntrada">Bloqueo de entrada</option>
+            <option value="antidispositivos">Antidispositivos</option>
+            <option value="demolicion">Demolición</option>
+            <option value="especialistaTrampas">Especialista en trampas</option>
+            <option value="antidisturbios">Antidisturbios</option>
+            <option value="vanguardia">Vanguardia</option>
+        </select>
+        <button id="resetFiltro">Restablecer Filtro</button> <!-- Nuevo botón para resetear filtro -->
+    </div>
+</div>
+<!-- Contenedor para el Video -->
+<div id="videoContainer" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: #fff; padding: 20px; border-radius: 8px; position: relative;">
+        <iframe id="videoIframe" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        <button id="closeVideo" style="position: absolute; top: 10px; right: 10px; font-size: 20px;">&times;</button>
+    </div>
+</div>
+
+    <!-- Operadores -->
+    <div id="operadores">
+        <div id="atacantes">
+            <img src="./images/atacantes/ash.png" id="ash" class="inteligencia bloqueoEntrada demolicion" alt="Ash">            
+            <img src="./images/atacantes/blackbeard.png" id="blackbeard" class="controlMapa">
+            <img src="./images/atacantes/brava.png" id="brava" class="apoyo">
+            <img src="./images/atacantes/amaru.png" id="amaru" class="vanguardia">
+            <img src="./images/atacantes/deimos.jpg.png" id="deimos" class="inteligencia">
+            <img src="./images/atacantes/grim.png" id="grim" class="antidisturbios">
+            <img src="./images/atacantes/iana.png" id="iana" class="controlMapa">
+            <img src="./images/atacantes/jackal.png" id="jackal" class="bloqueoEntrada">
+            <img src="./images/atacantes/montagne.png" id="montagne" class="antidispositivos">
+            <img src="./images/atacantes/nomad.png" id="nomad" class="apoyo">
+            <img src="./images/atacantes/ram.png" id="ram" class="demolicion">
+            <img src="./images/atacantes/sens.png" id="sens" class="especialistaTrampas">
+            <img src="./images/atacantes/sledge.png" id="sledge" class="vanguardia">
+            <img src="./images/atacantes/stricker.png" id="stricker" class="antidisturbios">
+            <img src="./images/atacantes/thermite.png" id="thermite" class="demolicion">
+        </div>
+    </div>
+
+    <!-- Botón de DEFENSORES -->
+    <div id="divBotones">
+        <button id="botonDefensa">
+            DEFENSORES <br/>
+            <img src="./images/torreIcono.png" width="40px" height="40px">
+        </button>
+    </div>
+    
+    <!-- Operadores Defensores -->
+    <div id="operadores">
+        <div id="defensores">
+            <img src="./images/defensores/bandit.png" id="bandit" class="antidispositivos controlMapa">
+            <img src="./images/defensores/castle.png" id="castle" class="bloqueoEntrada">
+            <img src="./images/defensores/doc.png" id="doc" class="inteligencia">
+            <img src="./images/defensores/echo.png" id="echo" class="controlMapa">
+            <img src="./images/defensores/frost.png" id="frost" class="especialistaTrampas">
+            <img src="./images/defensores/jager.png" id="jager" class="antidispositivos">
+            <img src="./images/defensores/kapkan.png" id="kapkan" class="especialistaTrampas">
+            <img src="./images/defensores/mira.png" id="mira" class="controlMapa">
+            <img src="./images/defensores/mozzie.png" id="mozzie" class="antidispositivos">
+            <img src="./images/defensores/mute.png" id="mute" class="inteligencia">
+            <img src="./images/defensores/oryx.png" id="oryx" class="vanguardia">
+            <img src="./images/defensores/pulse.png" id="pulse" class="antidispositivos">
+            <img src="./images/defensores/thorn.png" id="thorn" class="antidisturbios">
+            <img src="./images/defensores/valkyrie.png" id="valkyrie" class="controlMapa">
+            <img src="./images/defensores/warden.png" id="warden" class="inteligencia">
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="./script.js"></script>
+</body>
+</html>

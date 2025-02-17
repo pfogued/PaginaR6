@@ -1,0 +1,258 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/*Header*/
+div.nav {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 100%;
+}
+
+div.nav nav {
+    background-color: rgba(21, 47, 87, 0.532);
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 0px;
+}
+
+div.nav nav img {   
+    margin-right: 15px;
+}
+
+div.nav nav a {
+    text-decoration: none;
+    color: inherit;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0 15px;
+    padding: 5px 0;
+    font-family: monospace;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+div.nav nav a:hover {
+    color: #374ea2; 
+    /*Animación*/
+    transform: translateY(-3px);
+}
+div.nav nav a:active {
+    transform: scale(0.95); 
+}
+
+#divBotones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#botonAtaque , #botonDefensa {
+    color: black;
+    width: 150px;
+    height: 80px;
+    background-color: rgb(88, 163, 255);
+    font-family: fantasy;
+    border-radius: 7px;
+    border:0;
+    margin-top: 5%;
+}
+
+body{
+    background-image:url(./images/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+
+}
+
+#container{
+    display: grid;
+    grid-template-rows: 15vh 85vh;
+    grid-template-columns: 20vw 60vw 20vw;
+}
+
+header{
+    background-color: rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    grid-row: 1/2;
+    grid-column: 1/4;
+    z-index: 15;
+}
+
+
+#operadores{
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+#atacantes, #defensores {
+    display: grid;
+    /* 5 columnas */
+    grid-template-columns: repeat(5, 1fr); 
+    /* 6 filas*/
+    grid-template-rows: repeat(6, auto); 
+    /* Espacio entre imágenes */
+    gap: 15px; 
+    justify-items: center;
+    padding: 40px;
+}
+
+/*Efecto hover al pasar el cursor sobre los operadores*/
+#atacantes img:hover, #defensores img:hover {
+    transform: scale(1.1);
+}
+
+#operadores img{
+    width:10vw;
+    height: 20vw;
+    transition: width 3s;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+/*Colorear la carta del operador al pasar cursor*/
+#operadores img:hover {
+    /*Filtro que cambia el tono de la imagen*/
+    filter: hue-rotate(-20deg);
+    box-shadow: 0px 0px 12px 4px rgba(166, 166, 167, 0.7); 
+    transform: scale(1.1);
+}
+
+@media (max-width:500px){
+    .lateral{
+        display:none;
+    }
+    #peliculas{
+        grid-column: 1/4;
+    }
+}
+
+/* Estilo para las imágenes de los operadores */
+#operadores img {
+    opacity: 1;  /* Imágenes visibles por defecto */
+    transition: opacity 0.3s ease, filter 0.3s ease, border 0.3s ease; /* Suaviza la transición de opacidad, filtro y borde */
+}
+
+/* Clase para las imágenes que no coinciden con el filtro */
+#operadores img.atenuado {
+    filter: brightness(0.3); /* Oscurece bastante las imágenes que no coinciden con el filtro */
+    opacity: 1;  /* Aseguramos que la opacidad se mantenga al máximo, ya que el filtro las oscurecerá */
+    border: none; /* Elimina el borde de las imágenes atenuadas */
+}
+
+/* Clase para las imágenes iluminadas por el filtro */
+#operadores img.iluminado {
+    opacity: 1; /* Mantiene las imágenes completamente visibles */
+    filter: brightness(1.2); /* Aumenta el brillo para que se destaquen */
+    border: 5px solid yellow; /* Aplica el borde amarillo a las imágenes iluminadas */
+}
+
+/* Estilo para cuando un filtro está seleccionado (opcional para mejorar el aspecto visual del filtro) */
+#filtrosDesplegables select {
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Estilo para el filtro de "MAS FILTROS" */
+#masFiltros {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 220px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#masFiltros:hover {
+    background-color: #495057;
+}
+
+/* Estilo para el dropdown de filtros */
+#filtrosDesplegables {
+    margin-top: 10px;
+    padding: 10px;
+    display: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 220px;
+    transition: display 0.3s ease;
+}
+
+#filtroSeleccionado {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo para mostrar el dropdown cuando se hace clic */
+#filtrosDesplegables.show {
+    display: block;
+}
+
+/* Estilo para el contenedor de los botones de ATACANTES y DEFENSORES */
+#divBotonesFiltros {
+    margin-top: 15px;
+}
+
+#videoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#videoIframe {
+    max-width: 90%;
+    max-height: 80%;
+}
+
+#closeVideo {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeVideo:hover {
+    background-color: #d32f2f;
+}
+
+
+
+
