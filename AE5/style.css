@@ -39,13 +39,21 @@ div.nav nav a {
 }
 
 div.nav nav a:hover {
-    color: #374ea2; 
-    /*Animación*/
-    transform: translateY(-3px);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.1s ease; /* Transición suave */
 }
 div.nav nav a:active {
-    transform: scale(0.95); 
+    transform: scale(0.95); /* Aplica el estilo de presionado */ 
 }
+
+.pressed {
+    transform: scale(0.95); /* Simula que el botón está presionado */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra interna para simular el efecto de estar presionado */
+    background-color: #6495ED; /* Color de fondo ligeramente diferente cuando está presionado */
+}
+
 
 #divBotones {
     display: flex;

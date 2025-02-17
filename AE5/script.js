@@ -137,4 +137,14 @@ fetch('operadores.json')
             });
         });
     });
-    
+
+
+    //Animaciones botones
+    function togglePressed(event) {
+        const buttons = document.querySelectorAll('#myButton');
+        buttons.forEach(button => {
+            button.classList.remove('pressed');
+        });
+        const button = event.target;
+        button.classList.add('pressed');
+    }
