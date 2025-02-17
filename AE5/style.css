@@ -59,14 +59,14 @@ div.nav nav a:active {
 /* Estilo cuando el botón está en estado "presionado" */
 .pressed {
     transform: scale(1.2); 
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); 
-    background-color: #14d2ec;
+    box-shadow: inset 0 0 10px #3c00ff; 
+    background-color: #3c00ff;
 }
 /* Estilo cuando se presiona el botón (clic) */
 #myButton:active {
     transform: scale(1.1); 
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: #02ffea; 
+    box-shadow: inset 0 0 10px #3c00ff;
+    background-color: #3c00ff; 
 }
 
 
