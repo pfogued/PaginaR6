@@ -147,3 +147,4 @@ fetch('operadores.json')
         const button = event.target;
         button.classList.add('pressed');
     }
+    
