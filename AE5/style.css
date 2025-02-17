@@ -280,6 +280,24 @@ header{
 }
 
 
+/* Transición para los operadores iluminados cuando se selecciona un filtro */
+#operadores img.iluminado {
+    animation: parpadeo 2s infinite alternate;
+}
+
+/* Definición del parpadeo */
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 
 
