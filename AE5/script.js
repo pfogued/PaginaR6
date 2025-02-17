@@ -110,3 +110,31 @@ fetch('operadores.json')
         });
     })
     .catch(error => console.error('Error cargando operadores:', error));
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const operadores = document.querySelectorAll('#operadores img');
+        const closeButton = document.getElementById('closeVideo');
+        const videoContainer = document.getElementById('videoContainer');
+    
+        // Aplica la animación de entrada a los operadores
+        setTimeout(() => {
+            operadores.forEach(op => op.classList.add('cargado'));
+        }, 100);
+    
+        // Cerrar el video con animación
+        closeButton.addEventListener('click', function () {
+            videoContainer.classList.remove("mostrar");
+            setTimeout(() => { videoContainer.style.display = 'none'; }, 500);
+        });
+    
+        // Mostrar el video con animación
+        document.querySelectorAll("#operadores img").forEach(img => {
+            img.addEventListener("click", function () {
+                videoContainer.style.display = "flex";
+                setTimeout(() => { videoContainer.classList.add("mostrar"); }, 10);
+            });
+        });
+    });
+    
