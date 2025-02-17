@@ -39,13 +39,38 @@ div.nav nav a {
 }
 
 div.nav nav a:hover {
-    color: #374ea2; 
-    /*Animación*/
-    transform: translateY(-3px);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.1s ease; 
 }
 div.nav nav a:active {
-    transform: scale(0.95); 
+    transition: transform 0.3s ease, box-shadow 0.2s ease;  
 }
+
+
+/* Estilo base para el botón */
+#myButton {
+    transition: transform 0.3s ease, box-shadow 0.2s ease, background-color 0.3s ease; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgba(21, 47, 87, 0.532);
+}
+/* Estilo cuando el botón está en estado "presionado" */
+.pressed {
+    transform: scale(1.2); 
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); 
+    background-color: #14d2ec;
+}
+/* Estilo cuando se presiona el botón (clic) */
+#myButton:active {
+    transform: scale(1.1); 
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #02ffea; 
+}
+
+
+
 
 #divBotones {
     display: flex;
@@ -103,11 +128,8 @@ header{
 
 #atacantes, #defensores {
     display: grid;
-    /* 5 columnas */
     grid-template-columns: repeat(5, 1fr); 
-    /* 6 filas*/
     grid-template-rows: repeat(6, auto); 
-    /* Espacio entre imágenes */
     gap: 15px; 
     justify-items: center;
     padding: 40px;
@@ -128,7 +150,6 @@ header{
 
 /*Colorear la carta del operador al pasar cursor*/
 #operadores img:hover {
-    /*Filtro que cambia el tono de la imagen*/
     filter: hue-rotate(-20deg);
     box-shadow: 0px 0px 12px 4px rgba(166, 166, 167, 0.7); 
     transform: scale(1.1);
@@ -145,22 +166,22 @@ header{
 
 /* Estilo para las imágenes de los operadores */
 #operadores img {
-    opacity: 1;  /* Imágenes visibles por defecto */
-    transition: opacity 0.3s ease, filter 0.3s ease, border 0.3s ease; /* Suaviza la transición de opacidad, filtro y borde */
+    opacity: 1;  
+    transition: opacity 0.3s ease, filter 0.3s ease, border 0.3s ease;
 }
 
 /* Clase para las imágenes que no coinciden con el filtro */
 #operadores img.atenuado {
-    filter: brightness(0.3); /* Oscurece bastante las imágenes que no coinciden con el filtro */
-    opacity: 1;  /* Aseguramos que la opacidad se mantenga al máximo, ya que el filtro las oscurecerá */
-    border: none; /* Elimina el borde de las imágenes atenuadas */
+    filter: brightness(0.3);
+    opacity: 1;  
+    border: none;
 }
 
 /* Clase para las imágenes iluminadas por el filtro */
 #operadores img.iluminado {
-    opacity: 1; /* Mantiene las imágenes completamente visibles */
-    filter: brightness(1.2); /* Aumenta el brillo para que se destaquen */
-    border: 5px solid yellow; /* Aplica el borde amarillo a las imágenes iluminadas */
+    opacity: 1; 
+    filter: brightness(1.2);
+    border: 5px solid yellow; 
 }
 
 /* Estilo para cuando un filtro está seleccionado (opcional para mejorar el aspecto visual del filtro) */
