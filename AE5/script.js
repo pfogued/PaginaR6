@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const operadores = document.querySelectorAll('#operadores img');
     const masFiltros = document.getElementById('masFiltros');
     const filtrosDesplegables = document.getElementById('filtrosDesplegables');
-    const resetFiltro = document.getElementById('resetFiltro');  // Nuevo botón para resetear el filtro
+    const resetFiltro = document.getElementById('resetFiltro');
 
     // Aplicar estilos iniciales a los operadores
     operadores.forEach(op => {
@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función que aplica el filtro con transición
     function aplicarFiltro() {
-        // Restablecer todas las imágenes a su estado original
         operadores.forEach(op => {
             op.classList.remove('iluminado');
             op.style.transform = 'scale(1)';
@@ -28,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (op.classList.contains(filtroSeleccionado.value)) {
                 op.classList.add('iluminado');
             } else {
-                op.style.opacity = '0';  // Se desvanecen
-                setTimeout(() => { op.style.visibility = 'hidden'; }, 1500); // Se ocultan tras 1.5s
+                op.style.opacity = '0';  
+                setTimeout(() => { op.style.visibility = 'hidden'; }, 1500); 
             }
         });
     }
@@ -53,19 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
         opciones.forEach(opcion => {
             if (opcion.value === filtroSeleccionado.value) {
                 opcion.style.fontWeight = 'bold';
-                opcion.style.backgroundColor = '#e0e0e0';  // Color de fondo para destacar
+                opcion.style.backgroundColor = '#e0e0e0';  
             } else {
                 opcion.style.fontWeight = 'normal';
-                opcion.style.backgroundColor = '';  // Restaurar el fondo para otras opciones
+                opcion.style.backgroundColor = '';  
             }
         });
     }
 
     // Añadir funcionalidad para restablecer el filtro
     resetFiltro.addEventListener('click', function () {
-        filtroSeleccionado.value = "";  // Restablecer el filtro
-        aplicarFiltro();  // Volver a aplicar el filtro (vacío en este caso)
-        actualizarEstiloFiltro();  // Restaurar el estilo del desplegable
+        filtroSeleccionado.value = "";
+        aplicarFiltro(); 
+        actualizarEstiloFiltro();  
     });
 
     // Mostrar el filtro desplegable al hacer clic en "MAS FILTROS"
@@ -81,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Cerrar el video cuando se haga clic en el botón de cierre
     closeButton.addEventListener('click', function () {
-        videoContainer.style.display = 'none';  // Ocultar el contenedor
-        videoIframe.src = "";  // Detener el video
+        videoContainer.style.display = 'none';
+        videoIframe.src = ""; 
     });
 });
 
