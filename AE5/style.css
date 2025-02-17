@@ -320,5 +320,71 @@ header{
 }
 
 
+#videoLoading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Inicialmente oculto */
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: height 0.5s ease-in-out; /* Suaviza la animación */
+}
+
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilo del contenedor de video */
+#videoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#videoContainer.show {
+    opacity: 1;
+}
+
+#closeVideo {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeVideo:hover {
+    background-color: #d32f2f;
+}
+
+
+
+
+
 
 
