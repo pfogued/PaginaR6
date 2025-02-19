@@ -154,24 +154,37 @@ fetch('operadores.json')
 const agentes = document.querySelectorAll("#operadores img");
 
 // Muestra el fondo de carga con el logo girando cuando se hace clic en un agente
-agentes.forEach(agente => {
-    agente.addEventListener('click', function() {
-        // Muestra el fondo negro de carga
-        document.getElementById("videoLoading").style.display = "flex";
-        
-        // Inicia la animación de deslizamiento desde abajo hacia arriba
-        setTimeout(function() {
-            document.getElementById("videoLoading").style.height = "100%";  // La altura aumenta a 100% para mostrar el fondo de carga
-            
-            // Simulamos un retraso para la pantalla de carga (ajusta este tiempo si es necesario)
-            setTimeout(function() {
-                const videoUrl = 'URL_DEL_VIDEO'; // Aquí va la URL del video del personaje
-                mostrarVideo(videoUrl);  // Cargar y mostrar el video
-                ocultarFondoDeCarga();  // Ocultar el fondo de carga después de la animación
-            }, 3000);  // Tiempo de espera antes de mostrar el video
-        }, 0);  // Llamada inicial para empezar la animación
-    });
-});
+// Cargar las URLs de los videos desde un archivo JSON
+fetch('operadores.json')
+    .then(response => response.json())
+    .then(videos => {
+        agentes.forEach(agente => {
+            agente.addEventListener('click', function() {
+                const agenteId = this.dataset.id; // Supongamos que cada agente tiene un data-id con su clave en el JSON
+                
+                // Muestra el fondo negro de carga
+                document.getElementById("videoLoading").style.display = "flex";
+
+                // Inicia la animación de deslizamiento desde abajo hacia arriba
+                setTimeout(function() {
+                    document.getElementById("videoLoading").style.height = "100%";  
+
+                    // Simulamos un retraso para la pantalla de carga
+                    setTimeout(function() {
+                        const videoUrl = videos[agenteId]; // Obtiene la URL del video desde el JSON
+                        if (videoUrl) {
+                            mostrarVideo(videoUrl);  // Cargar y mostrar el video
+                        } else {
+                            console.error("No se encontró un video para el agente:", agenteId);
+                        }
+                        ocultarFondoDeCarga();  
+                    }, 2000);
+                }, 0);
+            });
+        });
+    })
+    .catch(error => console.error("Error cargando el JSON:", error));
+
 
 // Función para mostrar el video
 function mostrarVideo(url) {
