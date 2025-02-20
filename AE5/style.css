@@ -43,6 +43,7 @@ div.nav nav a:hover {
     font-size: 16px;
     cursor: pointer;
     transition: transform 0.1s ease; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 div.nav nav a:active {
     transition: transform 0.3s ease, box-shadow 0.2s ease;  
@@ -58,15 +59,15 @@ div.nav nav a:active {
 }
 /* Estilo cuando el botón está en estado "presionado" */
 .pressed {
-    transform: scale(1.2); 
-    box-shadow: inset 0 0 10px #3c00ff; 
-    background-color: #3c00ff;
+    transform: scale(1.1); 
+    box-shadow: inset 0 0 10px rgba(21, 47, 87, 0.532); 
+    background-color: rgba(21, 47, 87, 0.532);
 }
 /* Estilo cuando se presiona el botón (clic) */
 #myButton:active {
     transform: scale(1.1); 
-    box-shadow: inset 0 0 10px #3c00ff;
-    background-color: #3c00ff; 
+    box-shadow: inset 0 0 10px rgba(21, 47, 87, 0.532);
+    background-color: rgba(21, 47, 87, 0.532); 
 }
 
 
@@ -166,9 +167,9 @@ header{
 
 /* Estilo para las imágenes de los operadores */
 #operadores img {
-    opacity: 1; /* Establecer la opacidad inicial a 1 */
-    transition: opacity 3s ease, filter 3s ease; /* Transiciones suaves para opacidad y filtro */
-    filter: grayscale(0%) blur(0px); /* Imagen normal sin escala de grises ni difusa */
+    opacity: 1; 
+    transition: opacity 3s ease, filter 3s ease; 
+    filter: grayscale(0%) blur(0px); 
 }
 
 /* Clase para las imágenes que no coinciden con el filtro */
@@ -187,9 +188,9 @@ header{
 
 /* Clase para los operadores no seleccionados (que deben volverse grises) */
 #operadores img.unselected {
-    filter: grayscale(100%) blur(0px); /* Convierte la imagen a escala de grises */
-    opacity: 0.5; /* Reduce la opacidad para dar un efecto visual de desactivado */
-    transition: opacity 3s ease, filter 3s ease; /* Transición para aplicar cambios suavemente */
+    filter: grayscale(100%) blur(0px); 
+    opacity: 0.5; 
+    transition: opacity 3s ease, filter 3s ease;
 }
 
 /* Estilo para cuando un filtro está seleccionado (opcional para mejorar el aspecto visual del filtro) */
