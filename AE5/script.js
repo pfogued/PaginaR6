@@ -171,11 +171,9 @@ fetch('operadores.json')
 
                     // Simulamos un retraso para la pantalla de carga
                     setTimeout(function() {
-                        // Obtiene la URL del video desde el JSON
-                        const videoUrl = videos[agenteId]; 
+                        const videoUrl = videos[agenteId]; // Obtiene la URL del video desde el JSON
                         if (videoUrl) {
-                            // Cargar y mostrar el video
-                            mostrarVideo(videoUrl);  
+                            mostrarVideo(videoUrl);  // Cargar y mostrar el video
                         } else {
                             console.error("No se encontró un video para el agente:", agenteId);
                         }
@@ -193,8 +191,7 @@ function mostrarVideo(url) {
     const videoContainer = document.getElementById("videoContainer");
     const iframe = document.getElementById("videoIframe");
     
-    // Asigna la URL al iframe
-    iframe.src = url;  
+    iframe.src = url;  // Asigna la URL al iframe
     
     // Muestra el contenedor del video
     videoContainer.style.display = "flex";
@@ -202,19 +199,15 @@ function mostrarVideo(url) {
     // Aseguramos que el contenedor tenga la clase para hacerlo visible con transición
     setTimeout(function() {
         videoContainer.classList.add("show");
-        // Esperar un pequeño intervalo antes de agregar la clase de visibilidad
-    }, 100);  
+    }, 100);  // Esperar un pequeño intervalo antes de agregar la clase de visibilidad
 }
 
 // Función para ocultar el fondo de carga
 function ocultarFondoDeCarga() {
-    // Oculta el fondo de carga
-    document.getElementById("videoLoading").style.height = "0";  
+    document.getElementById("videoLoading").style.height = "0";  // Oculta el fondo de carga
     setTimeout(function() {
-        // Elimina el fondo de carga después de la animación
-        document.getElementById("videoLoading").style.display = "none"; 
-        // Tiempo coincide con la duración de la animación 
-    }, 500);  
+        document.getElementById("videoLoading").style.display = "none";  // Elimina el fondo de carga después de la animación
+    }, 500);  // Tiempo coincide con la duración de la animación
 }
 
 // Función para cerrar el video
@@ -223,6 +216,6 @@ document.getElementById("closeVideo").addEventListener('click', function() {
     const videoContainer = document.getElementById("videoContainer");
     videoContainer.style.display = "none";
     
-    // Detener el video al cerrarlo, y limpiar la fuente del iframe para detener el video
-    document.getElementById("videoIframe").src = '';  
+    // Detener el video al cerrarlo
+    document.getElementById("videoIframe").src = '';  // Limpiar la fuente del iframe para detener el video
 });
