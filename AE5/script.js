@@ -10,28 +10,42 @@ document.addEventListener('DOMContentLoaded', function () {
         op.style.transition = 'opacity 1.5s ease, transform 0.5s ease';
     });
 
-    // Función que aplica el filtro con transición
-    function aplicarFiltro() {
-        operadores.forEach(op => {
-            op.classList.remove('iluminado');
-            op.style.transform = 'scale(1)';
-            op.style.visibility = 'visible';
-            op.style.opacity = '1';
-        });
+// Función que aplica el filtro con transición
+function aplicarFiltro() {
+    operadores.forEach(op => {
+        op.classList.remove('iluminado', 'unselected');
+        op.style.transform = 'scale(1)';
+        op.style.visibility = 'visible';
+        op.style.opacity = '1';
+        op.style.transition = 'filter 2s ease'; // Aseguramos que tenga transición
+        op.style.filter = 'grayscale(0%)';  // Aseguramos que el filtro se restablezca al valor original
+    });
 
-        // Si no se ha seleccionado un filtro, salir
-        if (filtroSeleccionado.value === "") return;
-
-        // Aplicar cambios a las imágenes que coincidan con el filtro
+    // Si no se ha seleccionado un filtro, salir y restablecer todo a su estado original
+    if (filtroSeleccionado.value === "") {
         operadores.forEach(op => {
-            if (op.classList.contains(filtroSeleccionado.value)) {
-                op.classList.add('iluminado');
-            } else {
-                op.style.opacity = '0';  
-                setTimeout(() => { op.style.visibility = 'hidden'; }, 1500); 
-            }
+            op.style.filter = 'grayscale(0%)';  // Restablecer todos los filtros a su estado original
+            op.classList.remove('unselected');  // Eliminar la clase 'unselected' si no se selecciona ningún filtro
         });
+        return;
     }
+
+    // Aplicar cambios a las imágenes que coincidan con el filtro
+    operadores.forEach(op => {
+        if (op.classList.contains(filtroSeleccionado.value)) {
+            // Añadir la clase 'iluminado' de inmediato
+            op.classList.add('iluminado');
+            op.style.filter = 'grayscale(0%)';  // Restablecer el color original
+        } else {
+            // Aplicar 'unselected' con el filtro en gris y transición
+            op.style.filter = 'grayscale(100%)';  // Cambiar a gris
+            setTimeout(() => {
+                op.classList.add('unselected');
+            }, 50); // El retraso asegura que la transición sea gradual
+        }
+    });
+}
+
 
     // Función para mostrar/ocultar el desplegable de filtros
     masFiltros.addEventListener('click', function () {
@@ -238,4 +252,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
