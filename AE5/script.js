@@ -117,25 +117,30 @@ fetch('operadores.json')
         const closeButton = document.getElementById('closeVideo');
         const videoContainer = document.getElementById('videoContainer');
     
-        // Aplica la animación de entrada a los operadores
-        setTimeout(() => {
-            operadores.forEach(op => op.classList.add('cargado'));
-        }, 100);
+        if (operadores.length > 0) {
+            // Aplica la animación de entrada a los operadores
+            setTimeout(() => {
+                operadores.forEach(op => op.classList.add('cargado'));
+            }, 100);
     
-        // Cerrar el video con animación
-        closeButton.addEventListener('click', function () {
-            videoContainer.classList.remove("mostrar");
-            setTimeout(() => { videoContainer.style.display = 'none'; }, 500);
-        });
-    
-        // Mostrar el video con animación
-        document.querySelectorAll("#operadores img").forEach(img => {
-            img.addEventListener("click", function () {
-                videoContainer.style.display = "flex";
-                setTimeout(() => { videoContainer.classList.add("mostrar"); }, 10);
+            // Mostrar el video con animación
+            operadores.forEach(img => {
+                img.addEventListener("click", function () {
+                    videoContainer.style.display = "flex";
+                    setTimeout(() => { videoContainer.classList.add("mostrar"); }, 10);
+                });
             });
-        });
+        }
+    
+        if (closeButton && videoContainer) {
+            // Cerrar el video con animación
+            closeButton.addEventListener('click', function () {
+                videoContainer.classList.remove("mostrar");
+                setTimeout(() => { videoContainer.style.display = 'none'; }, 500);
+            });
+        }
     });
+    
 
 
     //Animaciones botones
@@ -210,12 +215,27 @@ function ocultarFondoDeCarga() {
     }, 500);  // Tiempo coincide con la duración de la animación
 }
 
+
 // Función para cerrar el video
-document.getElementById("closeVideo").addEventListener('click', function() {
-    // Ocultar el contenedor del video
+document.addEventListener('DOMContentLoaded', function () {
+    const closeButton = document.getElementById("closeVideo");
     const videoContainer = document.getElementById("videoContainer");
-    videoContainer.style.display = "none";
-    
-    // Detener el video al cerrarlo
-    document.getElementById("videoIframe").src = '';  // Limpiar la fuente del iframe para detener el video
+    const videoIframe = document.getElementById("videoIframe");
+
+    if (closeButton && videoContainer && videoIframe) {
+        // Guardar la URL original del video
+        const videoSrc = videoIframe.src;
+
+        closeButton.addEventListener('click', function() {
+            // Ocultar el contenedor del video
+            videoContainer.style.display = "none";
+
+            // Detener el video al cerrarlo restableciendo la URL original
+            videoIframe.src = '';
+            setTimeout(() => {
+                videoIframe.src = videoSrc; // Restaurar la URL después de un breve tiempo
+            }, 100);
+        });
+    }
 });
+
