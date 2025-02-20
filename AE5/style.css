@@ -399,3 +399,71 @@ header{
 #closeVideo:hover {
     background-color: #d32f2f;
 }
+
+/*RESPONSIVE*/
+
+/* Estilos generales para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ajustar el tamaño de los botones */
+    #botonAtaque, #botonDefensa {
+        width: 100%; /* Hacer que los botones ocupen el 100% del ancho */
+        height: 60px; /* Reducir la altura */
+        font-size: 14px; /* Reducir el tamaño de la fuente */
+    }
+
+    /* Ajustar el tamaño de las imágenes de los operadores */
+    #operadores img {
+        width: 20vw; /* Ajustar el ancho de las imágenes */
+        height: auto; /* Mantener la proporción */
+    }
+
+    /* Ajustar el contenedor de los operadores */
+    #atacantes, #defensores {
+        grid-template-columns: repeat(3, 1fr); /* Cambiar a 3 columnas */
+    }
+
+    /* Ajustar el tamaño del dropdown de filtros */
+    #filtrosDesplegables {
+        width: 100%; /* Hacer que el dropdown ocupe el 100% del ancho */
+    }
+
+    /* Ajustar el tamaño del botón "MÁS FILTROS" */
+    #masFiltros {
+        width: 100%; /* Hacer que el botón ocupe el 100% del ancho */
+    }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 500px) {
+    /* Ocultar elementos laterales si es necesario */
+    .lateral {
+        display: none;
+    }
+
+    /* Ajustar el tamaño de los botones */
+    #botonAtaque, #botonDefensa {
+        height: 50px; /* Reducir aún más la altura */
+        font-size: 12px; /* Reducir el tamaño de la fuente */
+    }
+
+    /* Ajustar el tamaño de las imágenes de los operadores */
+    #operadores img {
+        width: 30vw; /* Ajustar el ancho de las imágenes */
+        height: auto; /* Mantener la proporción */
+    }
+
+    /* Ajustar el contenedor de los operadores */
+    #atacantes, #defensores {
+        grid-template-columns: repeat(2, 1fr); /* Cambiar a 2 columnas */
+    }
+
+    /* Ajustar el tamaño del dropdown de filtros */
+    #filtrosDesplegables {
+        width: 100%; /* Hacer que el dropdown ocupe el 100% del ancho */
+    }
+
+    /* Ajustar el tamaño del botón "MÁS FILTROS" */
+    #masFiltros {
+        width: 100%; /* Hacer que el botón ocupe el 100% del ancho */
+    }
+}
