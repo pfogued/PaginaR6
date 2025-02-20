@@ -325,6 +325,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
+<<<<<<< HEAD
     height: 0; 
     background-color: black;
     z-index: 2000;
@@ -357,6 +358,38 @@ header{
     margin-top: -90px;
     border: 3px solid transparent;
     border-top-color: #ffffff;
+=======
+    height: 100%;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: height 0.5s ease-in-out;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loading-image {
+    width: 100px;
+    height: 100px;
+    background-image: url('./images/Rainbow6Logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    border-top: 8px solid #ffffff;
+>>>>>>> d761ba0c782e28f4a1290a1c357a4dc217c79fbb
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
