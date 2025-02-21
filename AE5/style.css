@@ -419,26 +419,40 @@ header{
     background-color: #d32f2f;
 }
 
-/*Responsive*/
+/* Responsive */
+@media (max-width: 1024px) {
+    #botonAtaque, #botonDefensa {
+        width: 100%;
+        height: 65px;
+        font-size: 16px;
+    }
+    #operadores img {
+        width: 18vw;
+        height: auto;
+    }
+    #atacantes, #defensores {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    #filtrosDesplegables, #masFiltros {
+        width: 100%;
+    }
+}
 
 @media (max-width: 768px) {
     #botonAtaque, #botonDefensa {
-        width: 100%; 
-        height: 60px;
+        width: 100%;
+        height: 50px;
         font-size: 14px;
     }
     #operadores img {
-        width: 20vw; 
+        width: 20vw;
         height: auto;
     }
     #atacantes, #defensores {
         grid-template-columns: repeat(3, 1fr);
     }
-    #filtrosDesplegables {
-        width: 100%; 
-    }
-    #masFiltros {
-        width: 100%; 
+    #filtrosDesplegables, #masFiltros {
+        width: 100%;
     }
 }
 
@@ -447,20 +461,46 @@ header{
         display: none;
     }
     #botonAtaque, #botonDefensa {
-        height: 50px;
+        height: 40px;
         font-size: 12px;
     }
     #operadores img {
-        width: 30vw; 
-        height: auto; 
+        width: 25vw;
+        height: auto;
     }
     #atacantes, #defensores {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
-    #filtrosDesplegables {
-        width: 100%; 
-    }
-    #masFiltros {
+    #filtrosDesplegables, #masFiltros {
         width: 100%;
     }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 12px;
+        padding: 6px;
+    }
 }
+
+@media (max-width: 360px) {
+    #botonAtaque, #botonDefensa {
+        height: 35px;
+        font-size: 10px;
+    }
+    #operadores img {
+        width: 28vw;
+    }
+    #atacantes, #defensores {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    nav a {
+        font-size: 10px;
+        padding: 4px;
+    }
+}
+
