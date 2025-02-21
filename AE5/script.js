@@ -19,7 +19,6 @@ function aplicarFiltro() {
         op.style.opacity = '1';
         op.style.transition = 'filter 2s ease'; // Aseguramos que tenga transición
         op.style.filter = 'grayscale(0%)';  // Aseguramos que el filtro se restablezca al valor original
-        op.style.pointerEvents = 'auto'; // Habilitamos la interacción
     });
 
     // Si no se ha seleccionado un filtro, salir y restablecer todo a su estado original
@@ -27,7 +26,6 @@ function aplicarFiltro() {
         operadores.forEach(op => {
             op.style.filter = 'grayscale(0%)';  // Restablecer todos los filtros a su estado original
             op.classList.remove('unselected');  // Eliminar la clase 'unselected' si no se selecciona ningún filtro
-            op.style.pointerEvents = 'auto'; // Habilitamos la interacción para todos
         });
         return;
     }
@@ -38,11 +36,9 @@ function aplicarFiltro() {
             // Añadir la clase 'iluminado' de inmediato
             op.classList.add('iluminado');
             op.style.filter = 'grayscale(0%)';  // Restablecer el color original
-            op.style.pointerEvents = 'auto'; // Habilitamos la interacción
         } else {
             // Aplicar 'unselected' con el filtro en gris y transición
             op.style.filter = 'grayscale(100%)';  // Cambiar a gris
-            op.style.pointerEvents = 'none'; // Deshabilitamos la interacción
             setTimeout(() => {
                 op.classList.add('unselected');
             }, 50); // El retraso asegura que la transición sea gradual
