@@ -52,25 +52,31 @@ div.nav nav a:active {
 
 /* Botones de la web - efectos hover y active */
 #myButton {
-    transition: transform 0.3s ease, box-shadow 0.2s ease, background-color 0.3s ease; 
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0 15px;
     padding: 10px 20px;
+    font-family: monospace;
+    transition: color 0.3s ease, transform 0.3s ease;
+    background-color: rgba(21, 47, 87, 0.532);
     border-radius: 5px;
-    background-color: rgba(21, 47, 87, 0.532);
 }
-/* Estilo cuando el botón está en estado "presionado" */
-.pressed {
-    transform: scale(1.1); 
-    box-shadow: inset 0 0 10px rgba(21, 47, 87, 0.532); 
-    background-color: rgba(21, 47, 87, 0.532);
+
+#myButton:hover {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.1s ease; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
-/* Estilo cuando se presiona el botón (clic) */
-#myButton:active {
+
+#myButton:active, #myButton.pressed {
     transform: scale(1.1); 
     box-shadow: inset 0 0 10px rgba(21, 47, 87, 0.532);
     background-color: rgba(21, 47, 87, 0.532); 
 }
-
-
 
 
 #divBotones {

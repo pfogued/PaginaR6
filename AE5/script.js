@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const operadores = document.querySelectorAll('#operadores img');
     const masFiltros = document.getElementById('masFiltros');
     const filtrosDesplegables = document.getElementById('filtrosDesplegables');
-    const resetFiltro = document.getElementById('resetFiltro');
+    const resetFiltro = document.querySelector('.resetFiltro');
 
     // Aplicar estilos iniciales a los operadores
     operadores.forEach(op => {
