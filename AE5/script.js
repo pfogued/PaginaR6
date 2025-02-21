@@ -37,8 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    
-
 
     // Función para mostrar/ocultar el desplegable de filtros
     masFiltros.addEventListener('click', function () {
@@ -93,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Cargar operadores desde JSON dinámicamente
+// Cargar operadores desde JSON 
 fetch('operadores.json')
     .then(response => {
         if (!response.ok) {
@@ -172,7 +170,7 @@ fetch('operadores.json')
     .then(videos => {
         agentes.forEach(agente => {
             agente.addEventListener('click', function() {
-                const agenteId = this.dataset.id; // Supongamos que cada agente tiene un data-id con su clave en el JSON
+                const agenteId = this.dataset.id; 
                 
                 // Muestra el fondo negro de carga
                 document.getElementById("videoLoading").style.display = "flex";
