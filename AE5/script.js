@@ -10,45 +10,34 @@ document.addEventListener('DOMContentLoaded', function () {
         op.style.transition = 'opacity 1.5s ease, transform 0.5s ease';
     });
 
-// Función que aplica el filtro con transición
-function aplicarFiltro() {
-    operadores.forEach(op => {
-        op.classList.remove('iluminado', 'unselected');
-        op.style.transform = 'scale(1)';
-        op.style.visibility = 'visible';
-        op.style.opacity = '1';
-        op.style.transition = 'filter 2s ease'; // Aseguramos que tenga transición
-        op.style.filter = 'grayscale(0%)';  // Aseguramos que el filtro se restablezca al valor original
-        op.style.pointerEvents = 'auto'; // Habilitamos la interacción
-    });
-
-    // Si no se ha seleccionado un filtro, salir y restablecer todo a su estado original
-    if (filtroSeleccionado.value === "") {
+    function aplicarFiltro() {
         operadores.forEach(op => {
-            op.style.filter = 'grayscale(0%)';  // Restablecer todos los filtros a su estado original
-            op.classList.remove('unselected');  // Eliminar la clase 'unselected' si no se selecciona ningún filtro
-            op.style.pointerEvents = 'auto'; // Habilitamos la interacción para todos
+            op.classList.remove('iluminado', 'unselected');
+            op.style.transform = 'scale(1)';
+            op.style.visibility = 'visible';
+            op.style.opacity = '1';
+            op.style.transition = 'filter 2s ease, opacity 0.5s ease-in-out';
+            op.style.filter = 'grayscale(0%)';
+            op.style.pointerEvents = 'auto';
         });
-        return;
-    }
-
-    // Aplicar cambios a las imágenes que coincidan con el filtro
-    operadores.forEach(op => {
-        if (op.classList.contains(filtroSeleccionado.value)) {
-            // Añadir la clase 'iluminado' de inmediato
-            op.classList.add('iluminado');
-            op.style.filter = 'grayscale(0%)';  // Restablecer el color original
-            op.style.pointerEvents = 'auto'; // Habilitamos la interacción
-        } else {
-            // Aplicar 'unselected' con el filtro en gris y transición
-            op.style.filter = 'grayscale(100%)';  // Cambiar a gris
-            op.style.pointerEvents = 'none'; // Deshabilitamos la interacción
-            setTimeout(() => {
+    
+        // Si no hay filtro seleccionado, restaurar todo
+        if (filtroSeleccionado.value === "") return;
+    
+        // Aplicar filtro
+        operadores.forEach(op => {
+            if (op.classList.contains(filtroSeleccionado.value)) {
+                op.classList.add('iluminado');
+                op.style.filter = 'grayscale(0%)';
+                op.style.pointerEvents = 'auto';
+            } else {
+                op.style.filter = 'grayscale(100%)';
+                op.style.pointerEvents = 'none';
                 op.classList.add('unselected');
-            }, 50); // El retraso asegura que la transición sea gradual
-        }
-    });
-}
+            }
+        });
+    }
+    
 
 
     // Función para mostrar/ocultar el desplegable de filtros
@@ -194,9 +183,10 @@ fetch('operadores.json')
 
                     // Simulamos un retraso para la pantalla de carga
                     setTimeout(function() {
-                        const videoUrl = videos[agenteId]; // Obtiene la URL del video desde el JSON
+                        // Obtenemos la URL del video desde el JSON
+                        const videoUrl = videos[agenteId]; 
                         if (videoUrl) {
-                            mostrarVideo(videoUrl);  // Cargar y mostrar el video
+                            mostrarVideo(videoUrl);  
                         } else {
                             console.error("No se encontró un video para el agente:", agenteId);
                         }
@@ -214,7 +204,7 @@ function mostrarVideo(url) {
     const videoContainer = document.getElementById("videoContainer");
     const iframe = document.getElementById("videoIframe");
     
-    iframe.src = url;  // Asigna la URL al iframe
+    iframe.src = url; 
     
     // Muestra el contenedor del video
     videoContainer.style.display = "flex";
@@ -222,15 +212,16 @@ function mostrarVideo(url) {
     // Aseguramos que el contenedor tenga la clase para hacerlo visible con transición
     setTimeout(function() {
         videoContainer.classList.add("show");
-    }, 100);  // Esperar un pequeño intervalo antes de agregar la clase de visibilidad
+    }, 100);  
 }
 
 // Función para ocultar el fondo de carga
 function ocultarFondoDeCarga() {
-    document.getElementById("videoLoading").style.height = "0";  // Oculta el fondo de carga
+    document.getElementById("videoLoading").style.height = "0";  
+    //Tiempo que coincide con la animación
     setTimeout(function() {
-        document.getElementById("videoLoading").style.display = "none";  // Elimina el fondo de carga después de la animación
-    }, 500);  // Tiempo coincide con la duración de la animación
+        document.getElementById("videoLoading").style.display = "none";  
+    }, 500);  
 }
 
 
@@ -251,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Detener el video al cerrarlo restableciendo la URL original
             videoIframe.src = '';
             setTimeout(() => {
-                videoIframe.src = videoSrc; // Restaurar la URL después de un breve tiempo
+                videoIframe.src = videoSrc; 
             }, 100);
         });
     }
