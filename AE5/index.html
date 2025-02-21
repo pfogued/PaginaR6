@@ -14,6 +14,22 @@
             <a id="myButton" onclick="togglePressed(event)" href="indexTodos.html">TODOS</a>
             <a id="myButton" onclick="togglePressed(event)" href="#botonAtaque">ATACANTES</a>
             <a id="myButton" onclick="togglePressed(event)" href="#botonDefensa">DEFENSORES</a>
+
+            <select id="filtroSeleccionado">
+                <option value="">Selecciona un filtro</option>
+                <option value="inteligencia">Inteligencia</option>
+                <option value="apoyo">Apoyo</option>
+                <option value="controlMapa">Control de mapa</option>
+                <option value="bloqueoEntrada">Bloqueo de entrada</option>
+                <option value="antidispositivos">Antidispositivos</option>
+                <option value="demolicion">Demolición</option>
+                <option value="especialistaTrampas">Especialista en trampas</option>
+                <option value="antidisturbios">Antidisturbios</option>
+                <option value="vanguardia">Vanguardia</option>
+            </select>
+            <button id="resetFiltro" style="width: 10%; height: 75% ;  background-color: rgba(21, 47, 87, 0.532); border-radius: 5px ; color: white;">Restablecer Filtro</button>
+            <button id="masFiltros" style="display: none;">
+            </button>
         </nav>
     </div>
 
@@ -24,27 +40,6 @@
             <img src="./images/espadasicono.png" width="40px" height="40px">
         </button>
     </div>
-<!-- Filtro "MAS FILTROS" debajo de los botones ATACANTES y DEFENSORES -->
-<div id="divBotonesFiltros">
-    <button id="masFiltros">
-        MÁS FILTROS
-    </button>
-    <div id="filtrosDesplegables" style="display: none;">
-        <select id="filtroSeleccionado">
-            <option value="">Selecciona un filtro</option>
-            <option value="inteligencia">Inteligencia</option>
-            <option value="apoyo">Apoyo</option>
-            <option value="controlMapa">Control de mapa</option>
-            <option value="bloqueoEntrada">Bloqueo de entrada</option>
-            <option value="antidispositivos">Antidispositivos</option>
-            <option value="demolicion">Demolición</option>
-            <option value="especialistaTrampas">Especialista en trampas</option>
-            <option value="antidisturbios">Antidisturbios</option>
-            <option value="vanguardia">Vanguardia</option>
-        </select>
-        <button id="resetFiltro">Restablecer Filtro</button>
-    </div>
-</div>
 <!-- Contenedor para el Video -->
 <div id="videoContainer" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: #000000; padding: 25px; border-radius: 5px; position: relative;">
